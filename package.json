@@ -23,8 +23,12 @@
   },
   "keywords": [],
   "author": "liu4426350@qq.com",
+  "dependencies": {
+    "@babel/runtime": "^7.26.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.26.0",
+    "@babel/plugin-transform-runtime": "^7.25.9",
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-typescript": "^7.26.0",
     "@commitlint/cli": "^19.6.0",
@@ -61,7 +65,7 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/liujilongObject/typescript-lib-template.git"
   },
   "lint-staged": {
     "src/**/*.{js,ts,mjs}": [

@@ -7,10 +7,17 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@babel/runtime':
+        specifier: ^7.26.0
+        version: 7.26.0
     devDependencies:
       '@babel/core':
         specifier: ^7.26.0
         version: 7.26.0
+      '@babel/plugin-transform-runtime':
+        specifier: ^7.25.9
+        version: 7.25.9(@babel/core@7.26.0)
       '@babel/preset-env':
         specifier: ^7.26.0
         version: 7.26.0(@babel/core@7.26.0)
@@ -501,6 +508,12 @@ packages:
 
   '@babel/plugin-transform-reserved-words@7.25.9':
     resolution: {integrity: sha512-7DL7DKYjn5Su++4RXu8puKZm2XBPHyjWLUidaPEkCUBbE7IPcsrkRHggAOOKydH1dASWdcUBxrkOGNxUv5P3Jg==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+
+  '@babel/plugin-transform-runtime@7.25.9':
+    resolution: {integrity: sha512-nZp7GlEl+yULJrClz0SwHPqir3lc0zsPrDHQUcxGspSL7AKrexNSEfTbfqnDNJUO13bgKyfuOLMF8Xqtu8j3YQ==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
@@ -2659,6 +2672,18 @@ snapshots:
     dependencies:
       '@babel/core': 7.26.0
       '@babel/helper-plugin-utils': 7.25.9
+
+  '@babel/plugin-transform-runtime@7.25.9(@babel/core@7.26.0)':
+    dependencies:
+      '@babel/core': 7.26.0
+      '@babel/helper-module-imports': 7.25.9
+      '@babel/helper-plugin-utils': 7.25.9
+      babel-plugin-polyfill-corejs2: 0.4.12(@babel/core@7.26.0)
+      babel-plugin-polyfill-corejs3: 0.10.6(@babel/core@7.26.0)
+      babel-plugin-polyfill-regenerator: 0.6.3(@babel/core@7.26.0)
+      semver: 6.3.1
+    transitivePeerDependencies:
+      - supports-color
 
   '@babel/plugin-transform-shorthand-properties@7.25.9(@babel/core@7.26.0)':
     dependencies:

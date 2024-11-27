@@ -19,6 +19,7 @@ export default defineConfig({
       format: 'esm',
     },
   ],
+  external: [/@babel\/runtime/],
   plugins: [
     nodeResolve({ extensions }),
     commonjs(),
@@ -31,7 +32,7 @@ export default defineConfig({
     }),
     babel({
       extensions,
-      babelHelpers: 'bundled',
+      babelHelpers: 'runtime',
       exclude: 'node_modules/**',
       skipPreflightCheck: true,
     }),
