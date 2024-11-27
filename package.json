@@ -1,0 +1,72 @@
+{
+  "name": "your-lib",
+  "version": "0.0.1",
+  "type": "module",
+  "packageManager": "pnpm@9.0.0",
+  "description": "",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "pnpm clean && pnpm build:watch",
+    "build": "pnpm clean && rollup -c --configPlugin typescript",
+    "build:watch": "rollup -c --configPlugin typescript -w",
+    "clean": "rimraf dist",
+    "lint": "eslint . --fix && pnpm format",
+    "format": "prettier --write \"**/*.{js,ts,mjs}\"",
+    "prepublishOnly": "pnpm build",
+    "prepare": "husky",
+    "lint-staged": "lint-staged"
+  },
+  "keywords": [],
+  "author": "liu4426350@qq.com",
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-typescript": "^7.26.0",
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@stylistic/eslint-plugin": "^1.7.0",
+    "@types/node": "^20.11.24",
+    "eslint": "^9.15.0",
+    "globals": "^15.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.4.0",
+    "rimraf": "^6.0.1",
+    "rollup": "^4.27.4",
+    "tslib": "^2.8.1",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.16.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=14"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts,mjs}": [
+      "pnpm lint"
+    ]
+  },
+  "license": "MIT"
+}

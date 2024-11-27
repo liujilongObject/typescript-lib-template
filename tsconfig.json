@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    // 编译目标版本
+    "target": "es2020", // 编译成 ES2020 版本的 JavaScript
+    "module": "esnext", // 使用 ESNext 的模块系统
+    "lib": ["es2020", "dom"], // 包含 ES2020 和 DOM 的类型定义
+
+    // 输出相关
+    "declaration": true, // 生成 .d.ts 类型声明文件
+    "declarationDir": "dist", // 类型声明文件输出目录
+    "outDir": "dist", // 编译输出目录
+
+    // 类型检查相关
+    "strict": true, // 启用所有严格的类型检查选项
+    "noUnusedLocals": true, // 检查未使用的局部变量
+    "noUnusedParameters": true, // 检查未使用的参数
+    "noImplicitReturns": true, // 检查函数是否有隐式的返回值
+    "noFallthroughCasesInSwitch": true, // 检查 switch 语句的 fall through 情况
+
+    // 模块解析相关
+    "moduleResolution": "node", // 使用 Node.js 的模块解析策略
+    "esModuleInterop": true, // 启用 ES 模块与 CommonJS 模块的互操作性
+    "resolveJsonModule": true, // 允许导入 json 文件
+    "forceConsistentCasingInFileNames": true, // 强制文件名大小写一致
+    "skipLibCheck": true, // 跳过声明文件的类型检查
+    "importHelpers": true, // 从 tslib 导入辅助函数
+    
+    // 项目结构相关
+    "rootDir": "src" // 源码根目录
+  },
+
+  // 项目文件管理
+  "include": ["src"], // 需要编译的文件
+  "exclude": ["node_modules", "dist", "eslint.config.mjs"] // 排除的文件
+}
