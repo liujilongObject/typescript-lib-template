@@ -1,6 +1,7 @@
 import stylistic from '@stylistic/eslint-plugin'
 import globals from 'globals'
 import tsEslint from 'typescript-eslint'
+import eslintConfigPrettier from 'eslint-config-prettier'
 
 export default tsEslint.config(
   // 启用类型检查的规则
@@ -27,11 +28,6 @@ export default tsEslint.config(
       '@typescript-eslint/explicit-module-boundary-types': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-
-      // 代码风格规则
-      '@stylistic/semi': ['error', 'always'],
-      '@stylistic/quotes': ['error', 'single'],
-      '@stylistic/indent': ['error', 2],
     },
   },
   {
@@ -52,5 +48,6 @@ export default tsEslint.config(
       'commitlint.config.mjs',
       'rollup.config.ts',
     ],
-  }
+  },
+  eslintConfigPrettier,
 )
