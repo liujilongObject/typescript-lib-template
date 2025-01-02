@@ -11,7 +11,7 @@ export default tsEslint.config(
   // 代码风格规则
   stylistic.configs['recommended-flat'],
   {
-    files: ['**/*.ts', '**/*.mjs'],
+    files: ['src/**/*.ts', 'src/**/*.mjs', 'src/**/*.js'],
     languageOptions: {
       parser: tsEslint.parser,
       parserOptions: {
@@ -28,6 +28,8 @@ export default tsEslint.config(
       '@typescript-eslint/explicit-module-boundary-types': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      '@typescript-eslint/no-deprecated': 'off', // window.external is deprecated
+      '@typescript-eslint/no-empty-function': 'off'
     },
   },
   {
@@ -46,8 +48,12 @@ export default tsEslint.config(
       'node_modules/**',
       'eslint.config.mjs',
       'commitlint.config.mjs',
-      'rollup.config.ts',
+      'rollup.config.mjs',
+      'scripts/**',
+      'examples/**',
+      'docs/**',
     ],
   },
+  // 禁用所有与 Prettier 冲突的规则
   eslintConfigPrettier,
 )

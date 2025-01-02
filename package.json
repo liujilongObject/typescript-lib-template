@@ -10,16 +10,23 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs.js",
+      "import": "./dist/index.esm.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
-    "dev": "pnpm clean && pnpm build:watch",
-    "build": "pnpm clean && rollup -c --configPlugin typescript",
-    "build:watch": "rollup -c --configPlugin typescript -w",
+    "prepare": "node scripts/prepare.js && husky",
+    "dev": "pnpm run clean && pnpm run build:watch",
+    "build:watch": "rollup -c -w",
+    "build": "pnpm run clean && rollup -c --environment BUILD:production",
     "clean": "rimraf dist",
-    "lint": "eslint . --fix && pnpm format",
+    "lint": "eslint . --fix && pnpm run format",
     "format": "prettier --write \"src/**/*.{js,ts,mjs}\"",
-    "prepublishOnly": "pnpm build",
-    "prepare": "husky",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "prepublishOnly": "pnpm run build && node scripts/prepublish.js"
   },
   "keywords": [],
   "author": "liu4426350@qq.com",
@@ -33,6 +40,7 @@
     "@babel/preset-typescript": "^7.26.0",
     "@commitlint/cli": "^19.6.0",
     "@commitlint/config-conventional": "^19.6.0",
+    "@rollup/plugin-alias": "^5.1.1",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
@@ -48,6 +56,7 @@
     "prettier": "^3.4.0",
     "rimraf": "^6.0.1",
     "rollup": "^4.27.4",
+    "rollup-plugin-dts": "^6.1.1",
     "tslib": "^2.8.1",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.16.0"
@@ -70,7 +79,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,ts,mjs}": [
-      "pnpm lint"
+      "pnpm run lint"
     ]
   },
   "license": "MIT"
