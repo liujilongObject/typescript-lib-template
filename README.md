@@ -56,13 +56,13 @@ import { something } from '@/utils'
 
 ### 克隆模板
 ```bash
-git clone <repository-url> my-lib
+npx degit <repository-url> your-lib
 ```
 
 ### 进入项目目录
 
 ```bash
-cd my-lib
+cd your-lib
 ```
 
 ### 安装依赖
